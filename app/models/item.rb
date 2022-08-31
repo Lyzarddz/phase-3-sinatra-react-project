@@ -1,6 +1,5 @@
 class Item < ActiveRecord::Base 
-    belongs_to :beach_list
-    belongs_to :mountain_list
+    belongs_to :list
 
     validates :name, presence: true, uniqueness: true
 end 
