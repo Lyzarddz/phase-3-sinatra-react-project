@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
     get "/items" do
-        item = Items.all 
+        item = Item.all 
         item.to_json
     end
 

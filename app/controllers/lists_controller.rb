@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
-    get '/lists/new' do
-        list= Lists.all
+    get '/lists' do
+        list= List.all
         list.to_json
     end
 
