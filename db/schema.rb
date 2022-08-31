@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_26_010135) do
-
-  create_table "beach_lists", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-  end
+ActiveRecord::Schema.define(version: 2022_08_25_231431) do
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.integer "beach_list_id"
-    t.integer "mountain_list_id"
-  end
-
-  create_table "mountain_lists", force: :cascade do |t|
     t.string "name"
     t.string "category"
   end
