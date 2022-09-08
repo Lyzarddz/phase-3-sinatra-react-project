@@ -18,6 +18,15 @@ class ItemsController < ApplicationController
         end
     end
 
+    patch "/items/:id" do
+        @item= Item.find_by_id(params[:id])
+        @item.update(
+            name: params[:name],
+            category: params[:category]
+        )
+    end
+
+
     delete "/items/:id" do
         @item = Item.find_by_id(params[:id])
         @item.destroy
