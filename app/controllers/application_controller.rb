@@ -6,4 +6,9 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  post "/lists" do
+    @list  = List.new(params[:list])
+    @list.to_json()
+  end
+
 end
