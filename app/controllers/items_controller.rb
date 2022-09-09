@@ -4,23 +4,23 @@ class ItemsController < ApplicationController
 
     get "/items" do
         item = Item.all 
-        item.to_json(include: [list_id: {include: [:name]}])
+        item.to_json()
 
     end
 
     post "/items" do
-       @item  = Item.new(params[:item])
+       item  = Item.new(params[:item])
 
         if item.save
-            @item.to_json
+            item.to_json
         else
-            {errors: @item.errors.full_messages}.to_json
+            {errors: item.errors.full_messages}.to_json
         end
     end
 
     patch "/items/:id" do
-        @item= Item.find_by_id(params[:id])
-        @item.update(
+        item= Item.find(params[:id])
+       if item && @item.update(
             name: params[:name],
             category: params[:category]
         )
@@ -32,4 +32,5 @@ class ItemsController < ApplicationController
         @item.destroy
         @item.to_json
     end
+end
 end
