@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
     end
 
     post "/items" do
-       item  = Item.new(params[:item])
+       item  = Item.new(
+        name: params[:name],
+        category: params[:category]
+       )
 
         if item.save
             item.to_json
@@ -20,7 +23,7 @@ class ItemsController < ApplicationController
 
     patch "/items/:id" do
         item= Item.find(params[:id])
-       if item && @item.update(
+        item.update(
             name: params[:name],
             category: params[:category]
         )
@@ -32,5 +35,4 @@ class ItemsController < ApplicationController
         @item.destroy
         @item.to_json
     end
-end
 end
