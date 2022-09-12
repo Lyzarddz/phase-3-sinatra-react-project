@@ -6,7 +6,8 @@ class ListsController < ApplicationController
     end
 
     post "/lists" do
-        list  = List.new(params[:list])
+        list  = List.new(
+            name: params[:name])
  
          if list.save
              list.to_json
