@@ -21,6 +21,7 @@ class ListsController < ApplicationController
         list.update(
             name: params[:name]
         )
+        list.to_json
     end
 
      delete "/lists/:id" do 
