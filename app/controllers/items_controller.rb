@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
        item  = Item.new(
         name: params[:name],
         category: params[:category]
+        
        )
 
         if item.save

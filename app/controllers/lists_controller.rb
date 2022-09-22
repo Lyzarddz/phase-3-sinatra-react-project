@@ -15,5 +15,18 @@ class ListsController < ApplicationController
              {errors: list.errors.full_messages}.to_json
          end
      end
+
+     patch "/lists/:id" do
+        list= List.find(params[:id])
+        list.update(
+            name: params[:name]
+        )
+    end
+
+     delete "/lists/:id" do 
+        @list = List.find_by_id(params[:id])
+        @list.destroy
+        @list.to_json
+    end
  
     end
