@@ -3,16 +3,20 @@
 class ItemsController < ApplicationController
 
     get "/items" do
-        item = Item.all 
+        item = Item.all
+        if params[:list_id]
+            item= Item.where(
+                list_id: params[:list_id]
+            )
+        end
         item.to_json()
-
     end
 
     post "/items" do
        item  = Item.new(
         name: params[:name],
-        category: params[:category]
-        
+        category: params[:category],
+        list_id: params[:list_id]
        )
 
         if item.save
